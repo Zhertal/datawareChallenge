@@ -1,0 +1,25 @@
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col">
+            <img [src]=character.image class="img-fluid rounded-start">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{character.id}} - {{character.name}} / {{character.location.name}}</h5>
+                <h6 class="card-subtitle">+{{character.status}} - {{character.species}}</h6>
+                <h6 class="card-subtitle">+{{character.type}}</h6>
+                <h6 class="card-subtitle">+{{character.gender}}</h6>
+                <h6 class="card-subtitle">+{{character.origin.name}}</h6>
+                <h6 class="card-subtitle">+{{character.origin.url}}</h6>
+                <h6 class="card-subtitle">+{{character.location.name}}</h6>
+                <h6 class="card-subtitle">+{{character.location.url}}</h6>
+                <h6 class="card-subtitle" *ngFor="let episode of character.episode">
+                    -{{episode}}
+                </h6>
+            </div>
+            <div class="card-footer text-muted">
+                {{character.created}}
+            </div>
+        </div>
+    </div>
+</div>        

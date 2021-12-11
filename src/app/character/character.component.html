@@ -1,0 +1,12 @@
+<div class="p-1">
+    <div class="card" (click)="viewDetails(character.id)">
+        <img [src]=character.image class="card-img-top" alt="Character image">
+        <div class="card-body">
+            <h5 class="card-title">{{character.name}}</h5>
+            <h6 class="card-subtitle">{{character.status}} - {{character.species}}</h6>
+        </div>
+        <div class="card-footer text-muted">
+            {{character.location.name}}
+        </div>
+    </div>
+</div>
