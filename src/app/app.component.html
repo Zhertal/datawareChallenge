@@ -1,31 +1,41 @@
+<!-------------------------------HEADER----------------------->
+<div class="jumbotron bg-cover text-white header">
+  <div class="container py-5 text-center">
+      <h1 class="display-4 font-weight-bold">Rick and Morthy characters</h1>
+      <p class="font-italic mb-0">DataWare challenge by Francisco Javier Romero Vargas</p>
+  </div>
+</div>
+
+<!------------------------------CONTENT-------------------------------->
 <div class="container">
-    <!---------------------If not character clicked--------------------->
-    <div class="row row-cols-1 row-cols-sm-3 row-cols-md-5" *ngIf="!requestedCharDetails; else detailsBlock">
-      <div *ngFor = "let character of characters.results">
-        <div class="col">
-          <app-character [character] = "character" (charId)="getCharById($event)"></app-character>
-        </div>
-      </div>    
+  <!---------------------If not character clicked--------------------->
+  <div class="row row-cols-1 row-cols-sm-3 row-cols-md-5" *ngIf="!requestedCharDetails; else detailsBlock">
+    <div class="col d-flex" *ngFor = "let character of characters.results">
+      <app-character class="d-flex" [character] = "character" (charId)="getCharById($event)"></app-character>
     </div>
-  
-    <nav aria-label="Page navigation example">
+    
+    <nav aria-label="Page navigation example" class="w-100">
       <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          <a class="page-link" href="characters.info.prev" tabindex="-1">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
         <li class="page-item">
-          <a class="page-link" href="characters.info.next">Next</a>
+          <button class="page-link" (click)="showCharPage(firstUrl)">First</button>
+        </li>
+        <li class="page-item" [ngClass]="characters.info.prev == null ? 'disabled' : ''">
+          <button class="page-link" (click)="showCharPage(characters.info.prev)">Previous</button>
+        </li>
+        <li class="page-item" [ngClass]="characters.info.next == null ? 'disabled' : ''">
+          <button class="page-link" (click)="showCharPage(characters.info.next)">Next</button>
+        </li>
+        <li class="page-item">
+          <button class="page-link" (click)="showCharPage(lastUrl)">Last</button>
         </li>
       </ul>
     </nav>
-    <!---------------------If character clicked--------------------->
-    <ng-template #detailsBlock>
-      <app-details [character] = "characters"></app-details>
-    </ng-template>
-      
-    
-      <button (click)="consoleLog()">Console Log</button>
-    </div>
+  </div>
+
+  <!---------------------If character clicked--------------------->
+  <ng-template #detailsBlock>
+    <app-details [character] = "characters" (reqCharDetails)="backDetails($event)"></app-details>
+  </ng-template>
+
+  <!--button (click)=consoleLog()>Console Log</button-->
+</div>

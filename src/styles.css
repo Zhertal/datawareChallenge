@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+.circle-success{
+    background-color: #45FF45;
+}
+
+.circle-danger{
+    background-color: #FF4545;
+}
+
+.circle-secondary{
+    background-color: #C0C0C0;
+}

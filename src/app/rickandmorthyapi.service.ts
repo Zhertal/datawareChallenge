@@ -10,8 +10,8 @@ export class RickandmorthyapiService {
 
   constructor(private http:HttpClient) { }
 
-  getCharPage(page:string){
-    return this.http.get(this.url+"character/?page="+page);
+  getCharPage(url:string){
+    return this.http.get(url);
   }
 
   getCharDetails(id:string){

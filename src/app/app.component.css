@@ -1,0 +1,8 @@
+.bg-cover{
+    background-image: url("../assets/header-bg.jpg");
+    background-size: cover;
+}
+
+.header{
+    margin-bottom: 4%;
+}

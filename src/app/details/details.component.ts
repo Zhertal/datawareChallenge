@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-details',
@@ -8,10 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
 
   @Input() character:any;
+  @Output() reqCharDetails = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  volver(value: boolean){
+    this.reqCharDetails.emit(value);
+  }
 }

@@ -1,12 +1,21 @@
-<div class="p-1">
-    <div class="card" (click)="viewDetails(character.id)">
-        <img [src]=character.image class="card-img-top" alt="Character image">
-        <div class="card-body">
-            <h5 class="card-title">{{character.name}}</h5>
-            <h6 class="card-subtitle">{{character.status}} - {{character.species}}</h6>
+<div class="card bg-light" (click)="viewDetails(character.id)">
+    <div class="card-header">
+        <b>{{character.name}}</b>
+    </div>
+    <img [src]=character.image class="card-img-top" alt="Character image">
+    <div class="card-body">
+        <div class="circle" [ngClass]="
+            character.status == 'Alive' ? 'circle-success': 
+                character.status == 'Dead' ? 'circle-danger': 'circle-secondary'">
         </div>
-        <div class="card-footer text-muted">
-            {{character.location.name}}
-        </div>
+        <label>{{character.status}}</label><br>
+        <label for="">Specie:</label>
+        <h6 class="card-subtitle">{{character.species}}</h6>
+        <label for="">Last known location:</label>
+        <h6 class="card-title">{{character.location.name}}</h6>
+    </div>
+    <div class="card-footer text-muted">
+        <label>From:</label>
+        <p>{{character.origin.name}}</p>
     </div>
 </div>

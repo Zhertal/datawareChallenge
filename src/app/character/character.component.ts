@@ -17,7 +17,7 @@ export class CharacterComponent implements OnInit {
   }
 
   viewDetails(value:string){
-    console.log(value)
     this.charId.emit(value);
   }
+  
 }

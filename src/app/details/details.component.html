@@ -1,25 +1,41 @@
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-        <div class="col">
-            <img [src]=character.image class="img-fluid rounded-start">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">{{character.id}} - {{character.name}} / {{character.location.name}}</h5>
-                <h6 class="card-subtitle">+{{character.status}} - {{character.species}}</h6>
-                <h6 class="card-subtitle">+{{character.type}}</h6>
-                <h6 class="card-subtitle">+{{character.gender}}</h6>
-                <h6 class="card-subtitle">+{{character.origin.name}}</h6>
-                <h6 class="card-subtitle">+{{character.origin.url}}</h6>
-                <h6 class="card-subtitle">+{{character.location.name}}</h6>
-                <h6 class="card-subtitle">+{{character.location.url}}</h6>
-                <h6 class="card-subtitle" *ngFor="let episode of character.episode">
-                    -{{episode}}
-                </h6>
+<div class="d-flex justify-content-center">
+    <div class="card mb-4 w-75 ">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img [src]=character.image class="img-fluid rounded-start">
             </div>
-            <div class="card-footer text-muted">
-                {{character.created}}
+            <div class="col-md-8">
+                <div class="card-header">
+                    <h4 class="card-title">{{character.name}}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="circle" [ngClass]="
+                        character.status == 'Alive' ? 'circle-success': 
+                            character.status == 'Dead' ? 'circle-danger': 'circle-secondary'">
+                    </div>
+                    <label>{{character.status}}</label><br>
+                    <label for="">Origin: </label>
+                    <h5 class="card-subtitle">{{character.origin.name}}</h5>
+                    <label for="">Specie: </label>
+                    <h5 class="card-subtitle">{{character.species}}</h5>
+                    <label for="">Gender: </label>
+                    <h5 class="card-subtitle">{{character.gender}}</h5>
+                    <label for="">Last known location: </label>
+                    <h5 class="card-subtitle">{{character.location.name}}</h5>
+                    <!--h6 class="card-subtitle">{{character.type}}</h6-->
+                    <!--h6 class="card-subtitle">{{character.origin.url}}</h6-->
+                    <!--h6 class="card-subtitle">{{character.location.url}}</h6-->
+                </div>
             </div>
         </div>
+        <!--div class="row w-100">
+            <h5>Episodes where {{character.name}} appear</h5>
+            <h6 *ngFor="let episode of character.episode">
+                {{episode}}
+            </h6>
+        </div-->
     </div>
-</div>        
+</div>
+<div class="d-flex justify-content-center">
+    <button class="btn btn-primary" (click)="volver(false)">Volver</button>     
+</div>
