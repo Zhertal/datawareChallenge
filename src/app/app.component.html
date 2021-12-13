@@ -10,7 +10,7 @@
 <div class="container">
   <!---------------------If not character clicked--------------------->
   <div class="row row-cols-1 row-cols-sm-3 row-cols-md-5" *ngIf="!requestedCharDetails; else detailsBlock">
-    <div class="col d-flex" *ngFor = "let character of characters.results">
+    <div class="col d-flex justify-content-center" *ngFor = "let character of characters.results">
       <app-character class="d-flex" [character] = "character" (charId)="getCharById($event)"></app-character>
     </div>
     
