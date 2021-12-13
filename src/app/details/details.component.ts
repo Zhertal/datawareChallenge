@@ -7,7 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  @Input() character:any;
+  @Input() character: any;
+
   @Output() reqCharDetails = new EventEmitter<boolean>();
 
   constructor() { }

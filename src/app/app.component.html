@@ -17,15 +17,54 @@
     <nav aria-label="Page navigation example" class="w-100">
       <ul class="pagination justify-content-center">
         <li class="page-item">
-          <button class="page-link" (click)="showCharPage(firstUrl)">First</button>
+          <button class="page-link" [ngClass]="characters.info.prev == null ? 'disabled' : ''" (click)="showCharPage(firstUrl)">
+            First
+          </button>
         </li>
         <li class="page-item" [ngClass]="characters.info.prev == null ? 'disabled' : ''">
-          <button class="page-link" (click)="showCharPage(characters.info.prev)">Previous</button>
+          <button class="page-link" (click)="showCharPage(characters.info.prev)">
+            Previous
+          </button>
+        </li>
+        <li class="page-item" [ngClass]="actualPage-3 <= 0 ? 'invisible' : ''">
+          <button class="page-link" (click)="showCharPage(mainUrl + 'character/?page=' + (actualPage - 3))">
+            {{actualPage - 3}}
+          </button>
+        </li>
+        <li class="page-item" [ngClass]="actualPage-2 <= 0 ? 'invisible' : ''">
+          <button class="page-link" (click)="showCharPage(mainUrl + 'character/?page=' + (actualPage - 2))">
+            {{actualPage - 2}}
+          </button>
+        </li>
+        <li class="page-item" [ngClass]="actualPage-1 <= 0 ? 'invisible' : ''">
+          <button class="page-link" (click)="showCharPage(mainUrl + 'character/?page=' + (actualPage - 1))">
+            {{actualPage - 1}}
+          </button>
+        </li>
+        <li class="page-item active">
+          <button class="page-link">
+            {{actualPage}}
+          </button>
+        </li>
+        <li class="page-item" [ngClass]="actualPage+1 >= characters.info.pages ? 'invisible' : ''">
+          <button class="page-link" (click)="showCharPage(mainUrl + 'character/?page=' + (actualPage + 1))">
+            {{actualPage + 1}}
+          </button>
+        </li>
+        <li class="page-item"  [ngClass]="actualPage+2 >= characters.info.pages ? 'invisible' : ''">
+          <button class="page-link" (click)="showCharPage(mainUrl + 'character/?page=' + (actualPage + 2))">
+            {{actualPage + 2}}
+          </button>
+        </li>
+        <li class="page-item"  [ngClass]="actualPage+3 >= characters.info.pages ? 'invisible' : ''">
+          <button class="page-link" (click)="showCharPage(mainUrl + 'character/?page=' + (actualPage + 3))">
+            {{actualPage + 3}}
+          </button>
+        </li>
+        <li class="page-item" >
+          <button class="page-link" [ngClass]="characters.info.next == null ? 'disabled' : ''" (click)="showCharPage(characters.info.next)">Next</button>
         </li>
         <li class="page-item" [ngClass]="characters.info.next == null ? 'disabled' : ''">
-          <button class="page-link" (click)="showCharPage(characters.info.next)">Next</button>
-        </li>
-        <li class="page-item">
           <button class="page-link" (click)="showCharPage(lastUrl)">Last</button>
         </li>
       </ul>

@@ -1,8 +1,12 @@
 .bg-cover{
-    background-image: url("../assets/header-bg.jpg");
+    background-image: url("../assets/bg-header.jpg");
     background-size: cover;
 }
 
 .header{
     margin-bottom: 4%;
+}
+
+.invisible{
+    display: none;
 }
